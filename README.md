@@ -69,7 +69,7 @@ Execute images.
 	root@lumi:~# yhomeui
 	e8944ab410da9a3cb3c76be105d4ec4f4804872fbbbe49555205e319c974af5d
 
-Please see the running containers below.
+The running containers are shown below.
 
 	root@lumi:~# docker ps -a
 	CONTAINER ID        IMAGE                               COMMAND                  CREATED             STATUS              PORTS                            NAMES
