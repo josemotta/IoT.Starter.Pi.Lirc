@@ -3,7 +3,7 @@
 
 Home Intelligence with Raspberry Pi
 
-Considering some images are already installed:
+Considering some images are already installed at RPI:
 
 	root@lumi:~# docker images
 	REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
