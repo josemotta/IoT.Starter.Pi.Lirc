@@ -10,7 +10,7 @@ services:
     - "5010"
     network_mode: bridge
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Release
 
   home.ui:
     image: josemottalopes/home-ui
@@ -21,7 +21,7 @@ services:
     - "80"
     network_mode: bridge
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Release
  
   ssl.proxy:
     image: josemottalopes/nginx-proxy

@@ -22,8 +22,8 @@ RUN dotnet build -c Development -r linux-arm -o /app
 FROM build AS publish
 #RUN dotnet publish -c Release -o /app
 #RUN dotnet publish -c Development -o /app
-#RUN dotnet publish -c Release -r linux-arm -o /app
-RUN dotnet publish -c Development -r linux-arm -o /app
+RUN dotnet publish -c Release -r linux-arm -o /app
+#RUN dotnet publish -c Development -r linux-arm -o /app
 
 FROM base AS final
 WORKDIR /app
