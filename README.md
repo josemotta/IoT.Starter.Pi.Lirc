@@ -1,2 +1,5 @@
 # IoT.Home.Pi
-IoT.Home.Netduino
+
+
+Home Intelligence with raspberry Pi
+
