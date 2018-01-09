@@ -14,7 +14,7 @@ As shown below, some images are already installed at RPI:
 	josemottalopes/nginx-proxy   latest              dfcc69831d22        2 weeks ago         87.9MB
 	josemottalopes/home-web      latest              241bfb394cda        2 weeks ago         235MB
 
-See below an upgrade session based on the latest version available at docker registry.
+See below the upgrade commands to download and install the latest software version available at docker registry.
 
 	root@lumi:~# docker pull josemottalopes/nginx-proxy
 	Using default tag: latest
@@ -53,14 +53,14 @@ See below an upgrade session based on the latest version available at docker reg
 	Digest: sha256:18c0b8ad3a97f619562b9b6815af47f2acf72f90ba15731eb995d7fbcd55669d
 	Status: Downloaded newer image for josemottalopes/home-web:latest
 
-Remove all containers.
+Now remove all containers, since they are related to the old version.
 
 	root@lumi:~# docker rm $(docker ps -a -q)
 	5df1f1f8d0e0
 	398ba160a6bb
 	d9e682be8359
 
-Execute the images with latest version.
+Execute the images with latest version, creating new  containers.
 	
 	alias yhomeui='docker run --privileged -p 80:80 -d josemottalopes/home-ui:latest'
 	alias yhomeweb='docker run --privileged -p 5010:5010 -d josemottalopes/home-web:latest'
