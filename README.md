@@ -1,7 +1,8 @@
 # IoT.Home.Pi
 
+### Home Intelligence with Raspberry Pi
 
-Home Intelligence with Raspberry Pi
+## Upgrading images to latest version 
 
 Considering some images are already installed at RPI:
 
