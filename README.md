@@ -51,14 +51,14 @@ When a new version is available for the device,  a new `Thing` should be pulled 
 	Digest: sha256:18c0b8ad3a97f619562b9b6815af47f2acf72f90ba15731eb995d7fbcd55669d
 	Status: Downloaded newer image for josemottalopes/home-web:latest
 
-Remove all images.
+Remove all containers.
 
 	root@lumi:~# docker rm $(docker ps -a -q)
 	5df1f1f8d0e0
 	398ba160a6bb
 	d9e682be8359
 
-Execute images.
+Execute the images with latest version.
 	
 	alias yhomeui='docker run --privileged -p 80:80 -d josemottalopes/home-ui:latest'
 	alias yhomeweb='docker run --privileged -p 5010:5010 -d josemottalopes/home-web:latest'
@@ -79,7 +79,7 @@ The running containers are shown below.
 	0680e32f0ae6        josemottalopes/nginx-proxy:latest   "nginx -g 'daemon ..."   47 seconds ago      Up 44 seconds       80/tcp, 0.0.0.0:443->443/tcp     vigilant_neumann
 	root@lumi:~#
 
-Cleaning the dangling images to free unused memory.
+But there are dangling images that should be removed to free the unused memory. Please see below the images from  a couple weeks ago. 
 
 	root@lumi:~# docker images -a
 	REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -90,7 +90,7 @@ Cleaning the dangling images to free unused memory.
 	josemottalopes/nginx-proxy   <none>              dfcc69831d22        2 weeks ago         87.9MB
 	josemottalopes/home-web      <none>              241bfb394cda        2 weeks ago         235MB
 
-It is necessary to select and remove the dangling images, see couple steps below. The first command select only unused images. Then it is used at second command to kill them.
+It is necessary to select and remove these dangling images, it is explained in a couple steps. First command select only unused images, and it is used at second command to kill them.
 
 	root@lumi:~# docker images -f dangling=true
 	REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
