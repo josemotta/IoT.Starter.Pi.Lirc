@@ -2,7 +2,7 @@
 
 #### Home Intelligence with Raspberry Pi
 
-### Upgrading images to latest version 
+### Upgrading to the latest version 
 
 Suppose that a new software should be pulled from the cloud and installed on your `Thing` device. For safety, consider that RPI just rebooted and is at a stable and known state. There are no containers running. We just pushed to the docker registry a new software version for home-ui, home-web and nginx-proxy.
 
