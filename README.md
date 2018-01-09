@@ -77,4 +77,42 @@ The running containers are shown below.
 	fa14eccb842b        josemottalopes/home-web:latest      "dotnet IO.Swagger..."   33 seconds ago      Up 30 seconds       80/tcp, 0.0.0.0:5010->5010/tcp   reverent_neumann
 	0680e32f0ae6        josemottalopes/nginx-proxy:latest   "nginx -g 'daemon ..."   47 seconds ago      Up 44 seconds       80/tcp, 0.0.0.0:443->443/tcp     vigilant_neumann
 	root@lumi:~#
-	
+
+Cleaning the dangling images to free unused memory.
+
+	root@lumi:~# docker images -a
+	REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
+	josemottalopes/nginx-proxy   latest              2d3d112a7057        3 hours ago         87.9MB
+	josemottalopes/home-web      latest              2f0e5ae80303        3 hours ago         235MB
+	josemottalopes/home-ui       latest              e232a3323f6a        3 hours ago         233MB
+	josemottalopes/home-ui       <none>              589665e965c4        2 weeks ago         233MB
+	josemottalopes/nginx-proxy   <none>              dfcc69831d22        2 weeks ago         87.9MB
+	josemottalopes/home-web      <none>              241bfb394cda        2 weeks ago         235MB
+
+It is necessary to select and remove the dangling images, see couple steps below. The first command select only unused images. Then it is used at second command to kill them.
+
+	root@lumi:~# docker images -f dangling=true
+	REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
+	josemottalopes/home-ui       <none>              589665e965c4        2 weeks ago         233MB
+	josemottalopes/nginx-proxy   <none>              dfcc69831d22        2 weeks ago         87.9MB
+	josemottalopes/home-web      <none>              241bfb394cda        2 weeks ago         235MB
+
+	root@lumi:~# docker rmi $(docker images -f dangling=true -q)
+	Untagged: josemottalopes/home-ui@sha256:67b10ee226a9ba8aa41abd9639cdddb34096b51475f3461ad7a2a487a8103d53
+	Deleted: sha256:589665e965c468e3d673c85b8ff0bc92820aa8941aa328f83771a34160319fe2
+	Deleted: sha256:aca51432841dbe12720af6abcd6d08c984cb60557f62975b034b4d705ce8ea81
+	Untagged: josemottalopes/nginx-proxy@sha256:08ccedc3ada5104cf207265c96755dd97bede056a4b92ec73e08c2ac09b4bf41
+	Deleted: sha256:dfcc69831d2226e0b95a9505ae8d2f51d7c553db6de78d1864731ca12979464a
+	Deleted: sha256:8fe54c25f4c69c2cdbcf964ca18b4a6a69afab9e1b20bb08806866052bd32b75
+	Deleted: sha256:09e525399f01f083db20cefff7dd9629da3499e605b31d3690eba538aa0985b1
+	Untagged: josemottalopes/home-web@sha256:c2483c67935a7fa7f4a227788a9799056f016be456bb61f9619ad303f793dd12
+	Deleted: sha256:241bfb394cda25dde265668ffa81244244548ad8589e30855f5d48a16721bbfc
+	Deleted: sha256:0e292f1fe6549466dfa7029ea3f53f4bc7f709e686bf69ee433875778ddbbcc5
+
+And only latest images are occupying memory space now, as shown below.
+
+	root@lumi:~# docker images -a
+	REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
+	josemottalopes/nginx-proxy   latest              2d3d112a7057        3 hours ago         87.9MB
+	josemottalopes/home-web      latest              2f0e5ae80303        3 hours ago         235MB
+	josemottalopes/home-ui       latest              e232a3323f6a        3 hours ago         233MB
