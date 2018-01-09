@@ -4,7 +4,9 @@
 
 ### Upgrading images to latest version 
 
-Considering some images are already installed at RPI:
+Suppose that a new software should be pulled from the cloud and installed on your `Thing` device. For safety, consider that RPI just rebooted and is at a stable and known state. There are no containers running. We just pushed to the docker registry a new software version for home-ui, home-web and nginx-proxy.
+
+As shown below, some images are already installed at RPI:
 
 	root@lumi:~# docker images
 	REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -12,7 +14,7 @@ Considering some images are already installed at RPI:
 	josemottalopes/nginx-proxy   latest              dfcc69831d22        2 weeks ago         87.9MB
 	josemottalopes/home-web      latest              241bfb394cda        2 weeks ago         235MB
 
-When a new version is available for the device,  a new `Thing` should be pulled from the cloud. See below an upgrade session based on the latest version available at docker registry.
+See below an upgrade session based on the latest version available at docker registry.
 
 	root@lumi:~# docker pull josemottalopes/nginx-proxy
 	Using default tag: latest
