@@ -12,7 +12,7 @@ Considering some images are already installed at RPI:
 	josemottalopes/nginx-proxy   latest              dfcc69831d22        2 weeks ago         87.9MB
 	josemottalopes/home-web      latest              241bfb394cda        2 weeks ago         235MB
 
-When a new version is available for the device,  the new `Thing` can be pulled from the cloud. See below an upgrade based on the latest version available at docker registry.
+When a new version is available for the device,  a new `Thing` should be pulled from the cloud. See below an upgrade session based on the latest version available at docker registry.
 
 	root@lumi:~# docker pull josemottalopes/nginx-proxy
 	Using default tag: latest
