@@ -90,7 +90,7 @@ But there are dangling images that should be removed to free the unused memory. 
 	josemottalopes/nginx-proxy   <none>              dfcc69831d22        2 weeks ago         87.9MB
 	josemottalopes/home-web      <none>              241bfb394cda        2 weeks ago         235MB
 
-It is necessary to select and remove these dangling images, it is explained in a couple steps. First command select only unused images, and it is used at second command to kill them.
+It is necessary to select and remove these dangling images, as explained below in a couple steps. First command select only unused images, and it is used at second command to kill them.
 
 	root@lumi:~# docker images -f dangling=true
 	REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
