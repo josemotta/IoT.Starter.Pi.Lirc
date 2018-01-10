@@ -81,7 +81,7 @@ The running containers are shown below.
 	0680e32f0ae6        josemottalopes/nginx-proxy:latest   "nginx -g 'daemon ..."   47 seconds ago      Up 44 seconds       80/tcp, 0.0.0.0:443->443/tcp     vigilant_neumann
 	root@lumi:~#
 
-But our job is not finished yet, since there are dangling images that should be removed to free unused memory. Please check below the images from  a couple weeks ago, they were just replaced in the upgrade process. 
+Now, it's time to check if everything is fine with new software version. Good! But our job is not finished yet, since there are dangling images that should be removed to free unused memory. Please check below the images from  a couple weeks ago, they were just replaced in the upgrade process. 
 
 	root@lumi:~# docker images -a
 	REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
