@@ -53,14 +53,14 @@ See below the upgrade commands to download and install the latest software versi
 	Digest: sha256:18c0b8ad3a97f619562b9b6815af47f2acf72f90ba15731eb995d7fbcd55669d
 	Status: Downloaded newer image for josemottalopes/home-web:latest
 
-Now remove all containers, since they are related to the old version.
+Now remove all containers, since they are related to the older version.
 
 	root@lumi:~# docker rm $(docker ps -a -q)
 	5df1f1f8d0e0
 	398ba160a6bb
 	d9e682be8359
 
-Execute the images with latest version, creating new  containers.
+Execute the images from latest version, creating new  containers.
 	
 	alias yhomeui='docker run --privileged -p 80:80 -d josemottalopes/home-ui:latest'
 	alias yhomeweb='docker run --privileged -p 5010:5010 -d josemottalopes/home-web:latest'
@@ -81,7 +81,7 @@ The running containers are shown below.
 	0680e32f0ae6        josemottalopes/nginx-proxy:latest   "nginx -g 'daemon ..."   47 seconds ago      Up 44 seconds       80/tcp, 0.0.0.0:443->443/tcp     vigilant_neumann
 	root@lumi:~#
 
-But job is not finished yet, since there are dangling images that should be removed to free unused memory. Please see below there are images from  a couple weeks ago that were replaced in the upgrade process. 
+But our job is not finished yet, since there are dangling images that should be removed to free unused memory. Please check below the images from  a couple weeks ago, they were just replaced in the upgrade process. 
 
 	root@lumi:~# docker images -a
 	REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -92,7 +92,7 @@ But job is not finished yet, since there are dangling images that should be remo
 	josemottalopes/nginx-proxy   <none>              dfcc69831d22        2 weeks ago         87.9MB
 	josemottalopes/home-web      <none>              241bfb394cda        2 weeks ago         235MB
 
-It is necessary to select and remove these dangling images, as explained below in a couple steps. First command select only unused images, and it is used at second command to kill them.
+It is necessary to select and remove these dangling images, as explained below in a couple steps. The first command selects only unused images, and it is used at second command to kill them.
 
 	root@lumi:~# docker images -f dangling=true
 	REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
