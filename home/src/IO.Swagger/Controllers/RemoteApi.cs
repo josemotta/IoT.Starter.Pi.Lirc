@@ -46,7 +46,7 @@ namespace IO.Swagger.Controllers
         /// 
         /// </summary>
         /// <remarks>returns ir code from remote</remarks>
-        /// <param name="remote">Lirc remote id</param>
+        /// <param name="remote">Lirc remote</param>
         /// <param name="code">ir code</param>
         /// <response code="200">All the codes</response>
         [HttpGet]
@@ -68,7 +68,7 @@ namespace IO.Swagger.Controllers
         /// 
         /// </summary>
         /// <remarks>returns all ir codes from remote</remarks>
-        /// <param name="remote">Lirc remote id</param>
+        /// <param name="remote">Lirc remote</param>
         /// <response code="200">All the codes</response>
         [HttpGet]
         [Route("/motta/home/1.0.1/remotes/{remote}")]
@@ -111,7 +111,7 @@ namespace IO.Swagger.Controllers
         /// 
         /// </summary>
         /// <remarks>flashes ir code simulating the remote control</remarks>
-        /// <param name="remote">Lirc remote id</param>
+        /// <param name="remote">Lirc remote</param>
         /// <param name="code">ir code</param>
         /// <response code="200">response</response>
         [HttpPost]
