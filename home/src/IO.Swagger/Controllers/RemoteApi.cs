@@ -88,15 +88,15 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>returns all registered remotes</remarks>
+        /// <remarks>returns all installed remotes</remarks>
         /// <param name="skip">number of records to skip</param>
         /// <param name="limit">max number of records to return</param>
-        /// <response code="200">All the remotes</response>
+        /// <response code="200">All the installed remotes</response>
         [HttpGet]
         [Route("/motta/home/1.0.1/remotes")]
         [ValidateModelState]
         [SwaggerOperation("GetRemotes")]
-        [SwaggerResponse(200, typeof(List<string>), "All the remotes")]
+        [SwaggerResponse(200, typeof(List<string>), "All the installed remotes")]
         public virtual IActionResult GetRemotes([FromQuery]int? skip, [FromQuery]int? limit)
         { 
             string exampleJson = null;
