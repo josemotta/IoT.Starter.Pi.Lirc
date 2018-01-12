@@ -45,6 +45,28 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>returns ir code from remote</remarks>
+        /// <param name="remote">Lirc remote id</param>
+        /// <param name="code">ir code</param>
+        /// <response code="200">All the codes</response>
+        [HttpGet]
+        [Route("/motta/home/1.0.1/remotes/{remote}/{code}")]
+        [ValidateModelState]
+        [SwaggerOperation("GetRemoteCode")]
+        [SwaggerResponse(200, typeof(List<string>), "All the codes")]
+        public virtual IActionResult GetRemoteCode([FromRoute]string remote, [FromRoute]string code)
+        { 
+            string exampleJson = null;
+            
+            var example = exampleJson != null
+            ? JsonConvert.DeserializeObject<List<string>>(exampleJson)
+            : default(List<string>);
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <remarks>returns all ir codes from remote</remarks>
         /// <param name="remote">Lirc remote id</param>
         /// <response code="200">All the codes</response>
