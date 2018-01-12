@@ -45,15 +45,16 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>returns all ir codes from remote</remarks>
-        /// <param name="remoteId">remote id</param>
+        /// <remarks>returns ir code from remote</remarks>
+        /// <param name="remote">Lirc remote</param>
+        /// <param name="code">ir code</param>
         /// <response code="200">All the codes</response>
         [HttpGet]
-        [Route("/motta/home/1.0.1/remotes/{remoteId}")]
+        [Route("/motta/home/1.0.1/remotes/{remote}/{code}")]
         [ValidateModelState]
-        [SwaggerOperation("GetRemoteCodes")]
+        [SwaggerOperation("GetRemoteCode")]
         [SwaggerResponse(200, typeof(List<string>), "All the codes")]
-        public virtual IActionResult GetRemoteCodes([FromRoute]string remoteId)
+        public virtual IActionResult GetRemoteCode([FromRoute]string remote, [FromRoute]string code)
         { 
             string exampleJson = null;
             
@@ -66,15 +67,36 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>returns all registered remotes</remarks>
+        /// <remarks>returns all ir codes from remote</remarks>
+        /// <param name="remote">Lirc remote</param>
+        /// <response code="200">All the codes</response>
+        [HttpGet]
+        [Route("/motta/home/1.0.1/remotes/{remote}")]
+        [ValidateModelState]
+        [SwaggerOperation("GetRemoteCodes")]
+        [SwaggerResponse(200, typeof(List<string>), "All the codes")]
+        public virtual IActionResult GetRemoteCodes([FromRoute]string remote)
+        { 
+            string exampleJson = null;
+            
+            var example = exampleJson != null
+            ? JsonConvert.DeserializeObject<List<string>>(exampleJson)
+            : default(List<string>);
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>returns all installed remotes</remarks>
         /// <param name="skip">number of records to skip</param>
         /// <param name="limit">max number of records to return</param>
-        /// <response code="200">All the remotes</response>
+        /// <response code="200">All the installed remotes</response>
         [HttpGet]
         [Route("/motta/home/1.0.1/remotes")]
         [ValidateModelState]
         [SwaggerOperation("GetRemotes")]
-        [SwaggerResponse(200, typeof(List<string>), "All the remotes")]
+        [SwaggerResponse(200, typeof(List<string>), "All the installed remotes")]
         public virtual IActionResult GetRemotes([FromQuery]int? skip, [FromQuery]int? limit)
         { 
             string exampleJson = null;
@@ -89,15 +111,15 @@ namespace IO.Swagger.Controllers
         /// 
         /// </summary>
         /// <remarks>flashes ir code simulating the remote control</remarks>
-        /// <param name="remoteId">remote id</param>
+        /// <param name="remote">Lirc remote</param>
         /// <param name="code">ir code</param>
         /// <response code="200">response</response>
         [HttpPost]
-        [Route("/motta/home/1.0.1/remotes/{remoteId}/{code}")]
+        [Route("/motta/home/1.0.1/remotes/{remote}/{code}")]
         [ValidateModelState]
         [SwaggerOperation("SendRemoteCode")]
         [SwaggerResponse(200, typeof(ApiResponse), "response")]
-        public virtual IActionResult SendRemoteCode([FromRoute]string remoteId, [FromRoute]string code)
+        public virtual IActionResult SendRemoteCode([FromRoute]string remote, [FromRoute]string code)
         { 
             string exampleJson = null;
             
