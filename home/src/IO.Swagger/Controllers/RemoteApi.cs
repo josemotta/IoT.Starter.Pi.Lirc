@@ -94,8 +94,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(200, typeof(List<string>), "All the installed remotes")]
         public virtual IActionResult GetRemotes([FromQuery]int? skip, [FromQuery]int? limit)
         {
-            //string example = (@"/usr/bin/irsend list """" """"").Bash();
-            string example = (@"ps aux").Bash();
+            string example = (@"/usr/bin/irsend list """" """"").Bash();
 
             return new ObjectResult(example);
         }
@@ -114,7 +113,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(200, typeof(ApiResponse), "response")]
         public virtual IActionResult SendRemoteCode([FromRoute]string remote, [FromRoute]string code)
         {
-            string example = ("/usr/bin/irsend send_once " + remote + " " + code).Bash();
+            string example = (@"/usr/bin/irsend send_once " + remote + " " + code).Bash();
 
             return new ObjectResult(example);
         }
