@@ -2,9 +2,8 @@
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 ENV ASPNETCORE_URLS "http://*:5010"
 WORKDIR /app
-EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM microsoft/dotnet:2.0-sdk AS build
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 ENV ASPNETCORE_URLS "http://*:5010"
 WORKDIR /src

@@ -11,6 +11,14 @@
   <ItemGroup>
     <None Include="cert.pem" />
     <None Include="key.pem" />
+    <None Include="lirc-compose.yml" />
+    <None Include="Lirc\lirc-web.dockerfile" />
+    <None Include="Lirc\remotes\lirc24.conf" />
+    <None Include="Lirc\remotes\lirc44.conf" />
+    <None Include="Lirc\remotes\Samsung_BN59-00678A.conf" />
+    <None Include="Lirc\setup\config.txt" />
+    <None Include="Lirc\setup\ir-remote.conf" />
+    <None Include="Lirc\setup\lirc_options.conf" />
     <None Include="proxy.conf" />
     <None Include="pi.docker-compose.yml" />
     <None Include="docker-compose.yml" />
