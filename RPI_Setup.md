@@ -34,7 +34,7 @@ GPIO 4 of RPi header pin 7
     cd 28-*
     cat w1_slave
 
-## Infrared + Keyes IR input 838B
+## Infrared
 
 Starting from LIRC Version 0.9.4+, the Debian distribution comes with a default configuration based on the `devinput` driver. This scheme should work out of the box with the following limitations:
 
