@@ -2,7 +2,7 @@
 
 #### Home Intelligence with Raspberry Pi
 
-### Updating IoT.Starter.Pi.Thing to latest version 
+### Updating RPI with latest `IoT.Starter.Pi.Thing` 
 
 Suppose that a new software should be pulled from the cloud and installed on your `Thing` device. For safety, consider that RPI just rebooted and is at a stable and known state, there are no containers running. We just pushed to the docker registry new software versions for home-ui, home-web and/or nginx-proxy.
 
