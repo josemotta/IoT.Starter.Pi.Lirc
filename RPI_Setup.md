@@ -1,5 +1,7 @@
 # RPI SETUP
 
+#### Home Intelligence with Raspberry Pi
+
 ## Temperature Sensor DS18B20 1-wire
 
 This setup considers RPI attached to the following hardware sensor:

@@ -1,4 +1,6 @@
 # IoT.Starter.Pi.Lirc
 
-#### IoT.Starter.Pi.Thing powered by Linux Infrared Remote Control
+#### Home Intelligence with Raspberry Pi
+
+## IoT.Starter.Pi.Thing powered by Linux Infrared Remote Control
 
