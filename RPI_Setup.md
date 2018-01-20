@@ -42,11 +42,13 @@ Starting from LIRC Version 0.9.4+, the Debian distribution comes with a default 
 - The remote(s) used must be supported by the kernel.
 - There is no need to do IR blasting (i. e., to send IR data).
 
-Linux Raspbian 4.9.54-v7+ supports several IR drive options:
+Linux Raspbian 4.9.54-v7+ has three options:
 
-- If you just need IR input for remote control  then the default is the best option. In this case, the  `devinput` drive is already set for you.
-- There is a second option to shutdown the RPI through a GPIO pin.
+- If you just need IR input for remote control then  the  `devinput` drive is already set for you. All you need is already set and you do not need to install more software.
+- There is a second option to shutdown the RPI through a GPIO pin, as shown at RPI website.
 - But if IR output is needed then you should follow option 3, in order to fully install and configure Lirc - the *Linux Infrared Remote Control for Raspberry Pi*. 
+
+Following are summarized options. We will choose option 3 because the IR blast output is needed to control the home devices.
 
 ### Option 1: gpio-ir
 
