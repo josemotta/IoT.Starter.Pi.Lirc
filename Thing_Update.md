@@ -1,6 +1,6 @@
 # IoT.Starter.Pi.Thing
 
-#### Home Intelligence with Raspberry Pi
+### Home Intelligence with Raspberry Pi
 
 ### Updating IoT.Starter.Pi.Thing to latest version 
 
