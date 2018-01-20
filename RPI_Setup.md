@@ -48,7 +48,7 @@ Linux Raspbian 4.9.54-v7+ has three options:
 - There is a second option to shutdown the RPI through a GPIO pin, as shown at RPI website.
 - But if IR output is needed then you should follow option 3, in order to fully install and configure Lirc - the *Linux Infrared Remote Control for Raspberry Pi*. 
 
-Following are summarized options. We will choose option 3 because the IR blast output is needed to control home devices.
+Following are summarized options. We will choose option 3 since IR blast output is required to control legacy home devices.
 
 ### Option 1: gpio-ir
 
