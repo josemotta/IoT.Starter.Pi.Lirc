@@ -1,4 +1,4 @@
 # IoT.Starter.Pi.Lirc
 
-#### Linux Infrared Remote Control extension by  IoT.Starter.Pi.Thing
+#### Linux Infrared Remote Control powered by IoT.Starter.Pi.Thing
 
