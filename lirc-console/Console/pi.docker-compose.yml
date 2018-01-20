@@ -1,0 +1,41 @@
+version: '3'
+# Intermediary version for tests.
+# Use lirc-compose.yml for GOOD result with lirc setup, irsend ok.
+services:
+  lirc:
+    container_name: home-lirc
+    image: josemottalopes/home-lirc
+    build:
+      context: .
+      dockerfile: Lirc/lirc.Dockerfile
+    network_mode: bridge
+    privileged: true
+    volumes:
+    - /lib/modules:/lib/modules
+    - /var/run/lirc:/var/run/lirc
+    devices:
+    - /dev/mem:/dev/mem
+    - /dev/lirc0:/dev/lirc0
+    cap_add:
+    - SYS_RAWIO
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  console:
+    container_name: home-console
+    image: josemottalopes/conlirc
+    build:
+      context: .
+      dockerfile: Contest/pi.Dockerfile
+    network_mode: bridge
+    privileged: true
+    volumes:
+    - /lib/modules:/lib/modules
+    - /var/run/lirc:/var/run/lirc
+    devices:
+    - /dev/mem:/dev/mem
+    - /dev/lirc0:/dev/lirc0
+    cap_add:
+    - SYS_RAWIO
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development

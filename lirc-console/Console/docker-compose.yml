@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  contest:
+    image: contest
+    build:
+      context: .
+      dockerfile: Contest/Dockerfile

@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  lirc:
+    container_name: lirconsole
+    image: josemottalopes/lirconsole
+    build:
+      context: .
+      dockerfile: Lirc/lirc.Dockerfile
+    network_mode: bridge
+    privileged: true
+    restart: always
+    volumes:
+    - /var/run/lirc:/var/run/lirc
+    cap_add:
+    - SYS_RAWIO
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
