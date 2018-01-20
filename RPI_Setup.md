@@ -99,7 +99,7 @@ Infrared led driven by a 2N3904 transistor, connected at GPIO17 (BCM 11).
 
 The Linux Infrared Remote Control for Raspberry Pi is derived from the original Lirc serial driver by [Aron Szabo](http://aron.ws/projects/lirc_rpi/ "original lirc for rpi"). Also a further development by Bengt Martensson [improved the Lirc driver](https://github.com/bengtmartensson/lirc_rpi "lirc_rpi"). The consequence is that Lirc configuration [changed so much](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=192891#p1212574) that updating from 0.9.0 requires special intervention. This can be done using an update script or a manual process. Most users just need some manual steps and a script is available to "convert" old configuration, at '/usr/share/lirc/lirc-old2new.sh'.
 
-The good news for you installing Lirc for the first time, is that Raspberry Pi / Raspbian Stretch comes with Lircd version 0.9.4c, with improvements to make your life  better. Files required at previous version are not used anymore: `/etc/modules` and `/etc/lirc/hardware.conf`.  
+The good news, for you installing Lirc for the first time, is that Raspberry Pi / Raspbian Stretch comes with Lircd version 0.9.4c, with improvements to make your life  better. Files required at previous version are not used anymore: `/etc/modules` and `/etc/lirc/hardware.conf`.  
 
 If you need more info, look for Device Tree at RPI website. Below, links and definitions that may help and  the `lirc-rpi` section extracted from official documents, showing parameters details.
 
