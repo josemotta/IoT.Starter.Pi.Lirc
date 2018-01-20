@@ -1,4 +1,4 @@
-# IoT.Starter.Pi.Lumi
+# IoT.Starter.Pi.Lirc
 
-#### Home Intelligence with Raspberry Pi
+#### Linux Infrared Remote Control extension for IoT.Starter.Pi.Thing
 
