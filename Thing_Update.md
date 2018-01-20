@@ -1,4 +1,4 @@
-# IoT.Starter.Pi
+# IoT.Starter.Pi.Thing
 
 #### Home Intelligence with Raspberry Pi
 
