@@ -167,6 +167,8 @@ As usual, the `dotnet:2.0.0-runtime-stretch-arm32v7` image is used as `base` and
 	COPY --from=publish /app .
 	ENTRYPOINT ["dotnet", "Contest.dll"]
 
+Finally the `Contest` console program is built and copied to same base image. The entry point is set exactly at the console program. It is now time to build and push the image to DockerHub.
+
 ### Building and pushing to Dockerhub
 
 	$ docker-compose -f lirc-compose.yml build
