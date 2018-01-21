@@ -398,7 +398,7 @@ Finally, the image `josemottalopes/lirconsole` is pushed to the Dockerhub.
 
 ### Pulling and running at RPI
 
-Below the docker command to load and run `lirconsole` at RPI. Please note that Lirc should be already properly installed and configured as shown at [RPI Setup instructions](https://github.com/josemotta/IoT.Starter.Pi.Lirc/blob/master/RPI_Setup.md).
+Below the docker command to load and run `lirconsole` at RPI. Please note that Lirc should be already properly installed and configured according [RPI Setup instructions](https://github.com/josemotta/IoT.Starter.Pi.Lirc/blob/master/RPI_Setup.md).
 
 	docker run -it --name home-lirc --privileged -v /var/run/lirc:/var/run/lirc josemottalopes/lirconsole:latest
 
