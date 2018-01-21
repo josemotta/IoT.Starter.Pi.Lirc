@@ -1,6 +1,6 @@
 # IoT.Starter.Pi.Lirc
 
-#### IoT.Starter.Pi.Thing powered by Linux Infrared Remote Control
+#### Thing powered by Linux Infrared Remote Control
 
 ## Lirc setup
 
