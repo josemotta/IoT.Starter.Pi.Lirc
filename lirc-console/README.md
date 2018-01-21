@@ -4,7 +4,7 @@
 
 ## `IoT.Starter.Pi.Thing` console
 
-Please note that, until now, `home-ui` and `home-web` projects were built with no knowledge about Lirc. The `lirconsole` objective is to start Lirc commands from a docker container, and communicate with Lirc installed at RPI host. As we will see, the `irsend` command will play an important role here, identifying remotes, their corresponding codes, and blasting the IR led with them. 
+Please note that, until now, `home-ui` and `home-web` projects were built with no knowledge about Lirc. The `lirconsole` objective is to start Lirc commands from a docker container, and communicate with Lirc installed at RPI host. As we will see, the `irsend` command will play an important role here, identifying remotes, their corresponding codes, and blasting IR led with them. 
 
 Console program is a simple loop, as shown below, that echoes commands. 
 
@@ -57,7 +57,7 @@ Well done. Actually, we now reached the real job at this mission.
 
 ## Lirc on docker container
 
-Based on the original [Lirc basic setup flow](http://www.lirc.org/html/configuration-guide.html#basic-setup-flow), the diagram below shows Lirc installed at RPI host, including low level devices, drivers and up to `lircd` socket. All this should be installed near hardware level.
+Based on the original [Lirc basic setup flow](http://www.lirc.org/html/configuration-guide.html#basic-setup-flow), the edited diagram below shows Lirc installed at RPI host. It includes all low level devices, drivers, `lircd` socket and `lircd.conf` configuration files, they are all installed at RPI host, near hardware level.
 
 	
 	      ------------
@@ -102,7 +102,7 @@ Based on the original [Lirc basic setup flow](http://www.lirc.org/html/configura
 	   ----------------
 
 
-The container will communicate exactly through the socket layer, since we can establish a docker link using the `volume` concept. Please see below the `Lirc-compose.yml` and `Lirc.dockerfile` that do the job.
+The container will communicate exactly through the socket layer, since we can establish a docker link using the `volume` concept. Please see below the `Lirc-compose.yml` and `Lirc.dockerfile` files that do all job.
 
 #### Lirc-compose.yml
 
