@@ -106,7 +106,7 @@ There are more detailed instructions about Lirc installation at [RPI Setup](http
 
 Lirc-Console extends IoT.Starter.Pi.Thing projects to use Linux Infrared Remote Control.
 
-Please note that, until now, `home-ui` and `home-web` projects were built with no knowledge about Lirc. The `lirconsole` objective is to start Lirc commands from a docker container, and communicate with Lirc installed at RPI host. As we will see, the `irsend` command will play an important role here, identifying remotes, their corresponding codes, and blasting IR streams   to control home equipment. 
+Please note that, until now, `home-ui` and `home-web` projects were built with no knowledge about Lirc. The `lirconsole` objective is to start Lirc commands from a docker container, and communicate with Lirc installed at RPI host. As we will see, the `irsend` command will play an important role here, identifying remotes, their corresponding codes, and blasting IR led streams to control home equipment. 
 
 Console program is a simple loop, as shown below, that echoes commands. 
 
