@@ -222,7 +222,7 @@ Based on the original [Lirc basic setup flow](http://www.lirc.org/html/configura
 	   ----------------
 
 
-At the bottom, the `lirconsole` program is running inside the docker container. Our strategy is communicating  through the `lircd` socket, using a docker `volume` to share data between host and container. Please see below the `Lirc-compose.yml` and `Lirc.dockerfile` files that do all job.
+At the bottom, the `lirconsole` program is running inside the docker container. Communicating  through the `lircd` socket, a docker `volume` is configured to share socket data between host and container. Please see below the `Lirc-compose.yml` and `Lirc.dockerfile` files that do all job.
 
 #### Lirc-compose.yml
 
