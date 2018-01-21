@@ -34,7 +34,7 @@ Edit file /etc/lirc/lirc_options.conf and change:
     
 ## Reboot and check
 
-There are more details about Lirc installation at [RPI Setup instructions](https://github.com/josemotta/IoT.Starter.Pi.Lirc/blob/master/RPI_Setup.md) available in the project repo. Following is a quick check to evaluate Lirc installation.
+Please check more details about Lirc installation at [RPI Setup instructions](https://github.com/josemotta/IoT.Starter.Pi.Lirc/blob/master/RPI_Setup.md) available in the project repo. Following is a quick check to evaluate Lirc installation.
 
 #### lircd status
 
