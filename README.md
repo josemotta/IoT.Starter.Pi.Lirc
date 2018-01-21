@@ -394,7 +394,7 @@ You can notice that several dockerfile and docker-compose files were kept in the
 	ccd48fa5ba35: Mounted from josemottalopes/conlirc
 	latest: digest: sha256:45413fab32528e3649035fb2e1af90c0f8e80272d7b93ae00f8949cff141b454 size: 2829
 
-Finally, a new image is pushed to the Dockerhub, at `josemottalopes/lirconsole`.
+Finally, the image `josemottalopes/lirconsole` is pushed to the Dockerhub.
 
 ### Pulling and running at RPI
 
