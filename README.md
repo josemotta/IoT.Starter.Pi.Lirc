@@ -42,7 +42,7 @@ Please check more details about Lirc installation at [RPI Setup instructions](ht
 
 #### lircd status
 
-	root@a4cfc1934fd1:/app# /etc/init.d/lircd status
+	/etc/init.d/lircd status
 	[ ok ] lircd is running.
 
 #### lsmod
