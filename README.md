@@ -273,7 +273,7 @@ Finally, the `Contest` console program is built and copied to the `base` image. 
 
 ### Building and pushing to Dockerhub
 
-You can notice that several dockerfile and docker-compose files were kept in the solution. To build the `lirconsole`, `lirc-compose.yml` and `lirc.Dockerfile` should be used, as shown at session below.
+You can notice that several dockerfile and docker-compose files were kept in the solution. To build the `lirconsole` properly, the `lirc-compose.yml` and `lirc.Dockerfile` files should be used, as shown at session below.
 
 	$ docker-compose -f lirc-compose.yml build
 	Building lirc
