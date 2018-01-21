@@ -2,6 +2,17 @@
 
 #### IoT.Starter.Pi.Thing powered by Linux Infrared Remote Control
 
+## Introduction
+
+This series, started by [IoT.Starter.Pi.Core](https://github.com/josemotta/IoT.Starter.Pi.Core), introduced in the second part the [IoT.Starter.Pi.Thing](https://github.com/josemotta/IoT.Starter.Pi.Thing), designed as a standard starter kit for IoT Home automation initiatives.
+
+Based on facts below, there are some specs:
+
+- We´d be able to extract most from the RPI if we better explore the vast and brilliant resources already available for Linux.
+- Most home automation initiatives should handle legacy infrared (IR) controlled gadgets we have at home, including sound, image, air, heater, etc.
+
+
+
 ## LIRC: Linux Infrared Remote Control for Raspberry Pi
 
 The Linux Infrared Remote Control for Raspberry Pi is derived from the original Lirc serial driver by [Aron Szabo](http://aron.ws/projects/lirc_rpi/ "original lirc for rpi"). A further development by Bengt Martensson [improved the Lirc driver](https://github.com/bengtmartensson/lirc_rpi "lirc_rpi"). The good news, for you installing Lirc for the first time, is that Raspberry Pi / Raspbian Stretch comes with Lircd (version 0.9.4c here), improved  to make your life better. Files required at previous version are not used anymore: `/etc/modules` and `/etc/lirc/hardware.conf`.  
