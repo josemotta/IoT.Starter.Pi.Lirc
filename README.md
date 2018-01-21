@@ -10,7 +10,7 @@ Based on facts below, the specification for the current mission is to provide IR
 
 - We´d be able to extract most from the RPI if we better explore the vast and brilliant resources already available for Linux.
 - Most home automation initiatives should handle legacy infrared (IR) controlled gadgets we have at home, including sound, image, air, heater, etc.
-- Linux Lirc is a mature and wide project. There is big remote database containing config files for remote controls, there are more than 2,500 devices and counting.
+- Linux Lirc is a mature and wide project. There is a big remote database containing config files for remote controls, there are more than 2,500 devices and counting.
 - IoT.Starter.Pi.Thing can benefit from Lirc installed at RPI, we just need to link them.
 
 ## LIRC: Linux Infrared Remote Control for Raspberry Pi
