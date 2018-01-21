@@ -447,6 +447,8 @@ The test session below starts with `Hello World!` message. Then, the available r
 	
 	root@lumi:~#
 
+### Mission accomplished
+
 As shown at photo below, the monitor acknowledged and accepted the command to decrease the volume.
 
 ![](https://i.imgur.com/BVzv3I2.png)
