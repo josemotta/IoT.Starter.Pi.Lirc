@@ -232,6 +232,7 @@ Edit file /etc/lirc/lirc_options.conf and change:
 	386518.244: TV service:host side not connected, dropping notification 0x00000002, 0x00000002, 0x00000044
 
 #### lsmod
+
     lsmod | grep lirc
 	lirc_rpi                9032  0
 	lirc_dev               10583  1 lirc_rpi
@@ -244,7 +245,9 @@ Edit file /etc/lirc/lirc_options.conf and change:
 	 gpio-5   (                    |w1 pullup           ) out hi
 	 gpio-35  (                    |?                   ) in  hi
 	 gpio-47  (                    |?                   ) out lo
+
 #### devices
+
     mode2 --driver default --list-devices
     /dev/lirc0
 

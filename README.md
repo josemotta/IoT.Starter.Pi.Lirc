@@ -1,7 +1,106 @@
-# Lirc-Console
+# IoT.Starter.Pi.Lirc
 
 #### IoT.Starter.Pi.Thing powered by Linux Infrared Remote Control
 
+## Lirc setup
+
+In order to update and upgrade Raspbian and install Lirc at RPI, run the command:
+
+	  apt-get update \
+	  && apt-get upgrade -y \
+	  && apt-get install -y lirc \
+	  && rm -rf /var/lib/apt/lists/*
+
+### Config.txt
+
+The Lirc version 0.9.4c is configured ONLY by file `/etc/config.txt`.
+
+Add to /boot/config.txt:
+
+    # Uncomment this to enable the lirc-rpi module
+    dtoverlay=lirc-rpi,gpio_out_pin=17,gpio_in_pin=18,gpio_in_pull=up
+
+### Change default driver
+
+Edit file /etc/lirc/lirc_options.conf and change:
+
+    from:
+    driver  = devinput
+    device  = auto
+    
+    to:
+    driver  = default
+    device  = /dev/lirc0
+    
+## Reboot and check
+
+Please check detailed tutorials for Lirc installation at [RPI Setup](https://github.com/josemotta/IoT.Starter.Pi.Lirc/blob/master/RPI_Setup.md) contained in the `IoT.Starter.Pi.Lirc` repository. Following is a quick check to evaluate if Lirc installation is fine.
+
+#### lircd status
+
+	root@a4cfc1934fd1:/app# /etc/init.d/lircd status
+	[ ok ] lircd is running.
+
+#### lsmod
+
+    lsmod | grep lirc
+	lirc_rpi                9032  0
+	lirc_dev               10583  1 lirc_rpi
+	rc_core                24377  1 lirc_dev
+
+#### devices
+
+    mode2 --driver default --list-devices
+    /dev/lirc0
+
+#### Checking available remotes and their respective IR codes
+
+	pi@lumi:~ $ irsend list "" ""
+
+	LED_24_KEY
+	LED_44_KEY
+	pi@lumi:~ $ irsend list LED_24_KEY ""
+
+	0000000000000001 BRIGHT_DOWN
+	0000000000000002 BRIGHT_UP
+	0000000000000003 OFF
+	0000000000000004 ON
+	0000000000000005 RED
+	0000000000000006 GREEN
+	0000000000000007 BLUE
+	0000000000000008 WHITE
+	0000000000000009 ORANGE
+	000000000000000a PEA_GREEN
+	000000000000000b DARK_BLUE
+	000000000000000c 7_JUMP
+	000000000000000d DARK_YELLOW
+	000000000000000e CYAN
+	000000000000000f BROWN
+	0000000000000010 ALL_FADE
+	0000000000000011 YELLOW
+	0000000000000012 LIGHT_BLUE
+	0000000000000013 PINK
+	0000000000000014 7_FADE
+	0000000000000015 STRAW_YELLOW
+	0000000000000016 SKY_BLUE
+	0000000000000017 PURPLE
+	0000000000000018 3_JUMP
+
+#### Blasting IR commands to RGB lights
+
+	# turn on
+	pi@lumi:~ $ irsend SEND_ONCE LED_44_KEY POWER
+	#change color
+	pi@lumi:~ $ irsend SEND_ONCE LED_44_KEY WHITE
+	pi@lumi:~ $ irsend SEND_ONCE LED_44_KEY CYAN
+	pi@lumi:~ $ irsend SEND_ONCE LED_44_KEY WHITE
+	# lights up and down
+	pi@lumi:~ $ irsend --count=10 SEND_ONCE LED_44_KEY BRIGHT_UP
+	pi@lumi:~ $ irsend --count=10 SEND_ONCE LED_44_KEY BRIGHT_UP
+	pi@lumi:~ $ irsend --count=20 SEND_ONCE LED_44_KEY BRIGHT_DOWN
+	pi@lumi:~ $ irsend --count=10 SEND_ONCE LED_44_KEY BRIGHT_UP
+	# turn off
+	pi@lumi:~ $ irsend SEND_ONCE LED_44_KEY POWER
 
 ## Lirc-Console
 
