@@ -14,7 +14,7 @@ Based on facts below:
 - Linux Lirc is a mature and wide project. There is a big remote database containing config files for remote controls with more than 2,500 devices and counting.
 - IoT.Starter.Pi.Thing can benefit from Lirc installed at RPI, we just need to link them.
 
-The specification for current mission is to provide infrared (IR) capability to `IoT.Starter.Pi.Thing` projects. 
+The specification for current mission is to provide infrared (IR) output capability to `IoT.Starter.Pi.Thing` projects. 
 
 ## LIRC: Linux Infrared Remote Control for Raspberry Pi
 
