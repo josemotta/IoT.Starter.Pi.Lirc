@@ -246,7 +246,7 @@ The volume is created exactly at socket area: `/var/run/lirc`. This insures the 
 
 #### Lirc.dockerfile
 
-As usual, the `dotnet:2.0.0-runtime-stretch-arm32v7` image is used as `base` and the OS is updated and upgraded before installing Lirc. After Lirc package installation, the RPI configuration is copied to Lirc inside container. This assures that remotes that are installed at RPI host be seen by docker container software. The `/boot/config.txt` is updated and same built in remotes are moved to /`etc/lirc/lircd.conf.d`, keeping the same setup installed at RPI host.
+As usual, the `dotnet:2.0.0-runtime-stretch-arm32v7` image is used as `base` and the OS is updated and upgraded before installing Lirc. After Lirc package installation, the RPI configuration is copied to Lirc inside container. This assures that remotes that are installed at RPI host be seen by docker container software. The `/boot/config.txt` is updated and remotes are moved to /`etc/lirc/lircd.conf.d`, in order to keep the same setup installed at RPI host.
 
 	FROM microsoft/dotnet:2.0.0-runtime-stretch-arm32v7 AS base
 	WORKDIR /app
