@@ -6,7 +6,7 @@
 
 This series, started by [IoT.Starter.Pi.Core](https://github.com/josemotta/IoT.Starter.Pi.Core), introduced in the second part the [IoT.Starter.Pi.Thing](https://github.com/josemotta/IoT.Starter.Pi.Thing), designed as a standard starter kit for IoT Home automation initiatives.
 
-Based on facts below, the specification for the current mission is to provide IR capability to IoT.Starter.Pi.Thing projects. 
+Based on facts below, the specification for the current mission is to provide IR capability to `IoT.Starter.Pi.Thing` projects. 
 
 - We´d be able to extract most from the RPI if we better explore the vast and brilliant resources already available for Linux.
 - Most home automation initiatives should handle legacy infrared (IR) controlled gadgets we have at home, including sound, image, air, heater, etc.
