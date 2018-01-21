@@ -449,7 +449,7 @@ The test session below starts with `Hello World!` message. Then, the available r
 
 ### Mission accomplished
 
-As shown at photo below, the monitor acknowledged and accepted the command to decrease the volume.
+As shown at photo below, the monitor acknowledged and accepted the IR output command to decrease the volume.
 
 ![](https://i.imgur.com/BVzv3I2.png)
 
