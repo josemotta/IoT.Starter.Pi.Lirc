@@ -105,7 +105,7 @@ Based on the original [Lirc basic setup flow](http://www.lirc.org/html/configura
 	   ----------------
 
 
-The container will communicate exactly through the socket layer, since we can establish a docker link using the `volume` concept. Please see below the `Lirc-compose.yml` and `Lirc.dockerfile` files that do all job.
+The `lirconsole` program that is running in the container will communicate exactly through the `lircd` socket. This is the best way to establish a link using the  docker `volume` concept. Please see below the `Lirc-compose.yml` and `Lirc.dockerfile` files that do all job.
 
 #### Lirc-compose.yml
 
