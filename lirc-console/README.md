@@ -3,7 +3,7 @@
 #### IoT.Starter.Pi.Thing powered by Linux Infrared Remote Control
 
 
-## `IoT.Starter.Pi.Thing` console
+## Lirc-Console
 
 Lirc-Console extends IoT.Starter.Pi.Thing to use Linux Infrared Remote Control.
 
