@@ -4,7 +4,7 @@
 
 ## LIRC: Linux Infrared Remote Control for Raspberry Pi
 
-The Linux Infrared Remote Control for Raspberry Pi is derived from the original Lirc serial driver by [Aron Szabo](http://aron.ws/projects/lirc_rpi/ "original lirc for rpi"). Also a further development by Bengt Martensson [improved the Lirc driver](https://github.com/bengtmartensson/lirc_rpi "lirc_rpi"). The good news, for you installing Lirc for the first time, is that Raspberry Pi / Raspbian Stretch comes with Lircd (version 0.9.4c here), improved  to make your life better. Files required at previous version are not used anymore: `/etc/modules` and `/etc/lirc/hardware.conf`.  
+The Linux Infrared Remote Control for Raspberry Pi is derived from the original Lirc serial driver by [Aron Szabo](http://aron.ws/projects/lirc_rpi/ "original lirc for rpi"). A further development by Bengt Martensson [improved the Lirc driver](https://github.com/bengtmartensson/lirc_rpi "lirc_rpi"). The good news, for you installing Lirc for the first time, is that Raspberry Pi / Raspbian Stretch comes with Lircd (version 0.9.4c here), improved  to make your life better. Files required at previous version are not used anymore: `/etc/modules` and `/etc/lirc/hardware.conf`.  
 
 ### Lirc install
 
