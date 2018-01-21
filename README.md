@@ -10,7 +10,7 @@ Based on facts below:
 
 - We´d be able to extract most from the RPI if we better explore the vast and brilliant resources already available for Linux.
 - Most home automation initiatives should handle legacy infrared (IR) controlled gadgets we have at home, including sound, image, air, heater, etc.
-- There are several RGB leds, led stripes and other low cost IR controlled lighting devices available today. Integrating low cost RGB leds to IoT initiatives is definitely a good opportunity to be explored.
+- There are several RGB leds, led stripes and other low cost IR controlled lighting devices available today. Integrating low cost RGB leds to the IoT initiatives is a good opportunity to be explored.
 - Linux Lirc is a mature and wide project. There is a big remote database containing config files for remote controls. More than 2,500 devices and counting.
 - IoT.Starter.Pi.Thing can benefit from Lirc installed at RPI, we just need to link them.
 
