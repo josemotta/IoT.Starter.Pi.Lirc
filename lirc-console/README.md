@@ -1,5 +1,172 @@
 # Lirc-Console
 
+#### Lirc-Console extends IoT.Starter.Pi.Thing to use Linux Infrared Remote Control
+
+## `IoT.Starter.Pi.Thing` console
+
+Please note that, until now, `home-ui` and `home-web` projects were built with no knowledge about Lirc. The `lirconsole` objective is to start Lirc commands from a docker container, and communicate with Lirc installed at RPI host. As we will see, the `irsend` command will play an important role here, identifying remotes, their corresponding codes, and blasting the IR led with them. 
+
+Console program is a simple loop, as shown below, that echoes commands. 
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+
+            string example = "";
+
+            while (!example.ToLower().Equals("x"))
+            {
+                example = Console.ReadLine();
+                Console.WriteLine(example);
+                Console.WriteLine(example.Bash());
+            }
+
+            //Console.Read();
+        }
+    }
+
+The ShellHelper class suggested by [Loune.net](https://loune.net/2017/06/running-shell-bash-commands-in-net-core/) does the dirty job, starting a bash process,  capturing the answer, and returning the `string` result.
+
+    public static class ShellHelper
+    {
+        public static string Bash(this string cmd)
+        {
+            var escapedArgs = cmd.Replace("\"", "\\\"");
+
+            var process = new Process()
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "/bin/bash",
+                    Arguments = $"-c \"{escapedArgs}\"",
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                }
+            };
+            process.Start();
+            string result = process.StandardOutput.ReadToEnd();
+            process.WaitForExit();
+            return result;
+        }
+    }
+
+Well done. Actually, we now reached the real job at this mission.
+
+## Lirc on docker container
+
+Based on the original [Lirc basic setup flow](http://www.lirc.org/html/configuration-guide.html#basic-setup-flow), the diagram below shows Lirc installed at RPI host, including low level devices, drivers and up to `lircd` socket. All this should be installed near hardware level.
+
+	
+	      ------------
+	      |  remote  |
+	      ------------
+	
+	        (air gap)
+	
+	      ------------
+	      ! capture  !
+	      ! device   !
+	      ------------
+	           |
+	           v
+	           |
+	      ------------
+	      ! kernel   !                   Sometimes needs
+	      ! driver   !                   modprobe(1) configuration.
+	      ------------
+	           |
+	           v  IR pulse data          Device like /dev/lirc0, /dev/ttyACM0.
+	           |                         or /dev/ttyS0.
+	      ------------
+	      |  lirc    |                   Configure lirc_options.conf
+	      |  driver  |                   with driver and usually also device.
+	      ------------
+	           |
+	           v  IR pulse data          Use mode2(1) to debug
+	           |
+	   ----------------
+	   |  lirc pass 1 |                  lircd.conf config file.
+	   ----------------
+	           |
+	           v  Key symbols            Output socket e. g.,
+	           |                         /var/run/lirc/lircd. Use irw(1) to debug.
+	HOST
+	===============================================================================
+	CONTAINER
+	           |
+	   ----------------
+	   |  lirconsole  |                  lirconsole app.
+	   ----------------
+
+
+The container will communicate exactly through the socket layer, since we can establish a docker link using the `volume` concept. Please see below the `Lirc-compose.yml` and `Lirc.dockerfile` that do the job.
+
+#### Lirc-compose.yml
+
+The volume is created exactly at socket area: `/var/run/lirc`. This insures the proper communication between containers running `irsend` commands and Lirc output socket installed at RPI host.
+
+	version: '3'
+	
+	services:
+	  lirc:
+	    container_name: lirconsole
+	    image: josemottalopes/lirconsole
+	    build:
+	      context: .
+	      dockerfile: Lirc/lirc.Dockerfile
+	    network_mode: bridge
+	    privileged: true
+	    volumes:
+	    - /var/run/lirc:/var/run/lirc
+	    environment:
+	      - ASPNETCORE_ENVIRONMENT=Development
+
+#### Lirc.dockerfile
+
+As usual, the `dotnet:2.0.0-runtime-stretch-arm32v7` image is used as `base` and the OS is updated and upgraded before installing Lirc. After Lirc package installation, the RPI configuration is copied to Lirc inside container. This assures that remotes that are installed at RPI host be seen by docker container software. The `/boot/config.txt` and built in remotes are moved to /`etc/lirc/lircd.conf.d`, keeping the same setup installed at RPI host.
+
+	FROM microsoft/dotnet:2.0.0-runtime-stretch-arm32v7 AS base
+	WORKDIR /app
+	ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
+	
+	RUN \
+	  apt-get update \
+	  && apt-get upgrade -y \
+	  && apt-get install -y \
+	       lirc \
+	  --no-install-recommends && \
+	  rm -rf /var/lib/apt/lists/*
+	
+	RUN \
+	  mkdir -p /var/run/lirc \
+	  && rm -f /etc/lirc/lircd.conf.d/devinput.*
+	
+	COPY Lirc/setup/config.txt /boot/config.txt
+	COPY Lirc/setup/lirc_options.conf /etc/lirc/lirc_options.conf 
+	COPY Lirc/setup/ir-remote.conf /etc/modprobe.d/ir-remote.conf
+	COPY Lirc/remotes /etc/lirc/lircd.conf.d
+	
+	FROM microsoft/dotnet:2.0-sdk AS build
+	WORKDIR /src
+	ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
+	COPY *.sln .
+	COPY Contest/Contest.csproj Contest/
+	RUN dotnet restore
+	COPY . .
+	WORKDIR /src/Contest
+	RUN dotnet build -c Release -r linux-arm -o /app
+	
+	FROM build AS publish
+	RUN dotnet publish -c Release -r linux-arm -o /app
+	
+	FROM base AS final
+	WORKDIR /app
+	COPY --from=publish /app .
+	ENTRYPOINT ["dotnet", "Contest.dll"]
+
 ### Building and pushing to Dockerhub
 
 	$ docker-compose -f lirc-compose.yml build
