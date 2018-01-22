@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This series, started by [IoT.Starter.Pi.Core](https://github.com/josemotta/IoT.Starter.Pi.Core), introduced in the second part the [IoT.Starter.Pi.Thing](https://github.com/josemotta/IoT.Starter.Pi.Thing), designed as a standard starter kit for IoT Home automation initiatives.
+This series, started by [IoT.Starter.Pi.Core](https://github.com/josemotta/IoT.Starter.Pi.Core), introduced in the second part the [IoT.Starter.Pi.Thing](https://github.com/josemotta/IoT.Starter.Pi.Thing), designed as a  starter kit for IoT initiatives using Raspberry Pi with Linux.
 
 Based on facts below:
 
