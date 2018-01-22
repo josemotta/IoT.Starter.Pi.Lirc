@@ -20,7 +20,7 @@ https://hub.docker.com/r/josemottalopes/lirconsole/
 
 #### arm: RaspberryPi 
 
-	docker run -it --name home-lirc --privileged -v /var/run/lirc:/var/run/lirc josemottalopes/lirconsole:latest 
+	docker run -it --privileged -v /var/run/lirc:/var/run/lirc josemottalopes/lirconsole:latest 
 
 
 
