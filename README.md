@@ -1,5 +1,7 @@
 # IoT.Starter.Pi.Lirc
 
+Also published at [Code Project](https://www.codeproject.com/Articles/1226559/IoT-Starter-Raspberry-Pi-Lirc)
+
 #### IoT.Starter.Pi.Thing powered by Linux Infrared Remote Control
 
 ## Introduction
