@@ -420,7 +420,7 @@ Finally, the image `josemottalopes/lirconsole` is pushed to the Dockerhub.
 
 Below the docker command to load and run `lirconsole` at RPI. Please note that Lirc should be properly installed and configured according [RPI Setup instructions](https://github.com/josemotta/IoT.Starter.Pi.Lirc/blob/master/RPI_Setup.md).
 
-	docker run -it --name home-lirc --privileged -v /var/run/lirc:/var/run/lirc josemottalopes/lirconsole:latest
+	docker run -it --privileged -v /var/run/lirc:/var/run/lirc josemottalopes/lirconsole:latest
 
 The test session below starts with `Hello World!` message. Then, the available remotes are listed by `irsend list "" ""`. You can check that there is a Samsung IR remote control in the list. Last, the `irsend` command is used again, commanding the "volume down" key of Samsung monitor. 
 
